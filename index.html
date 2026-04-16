@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Minha Jornada Irlandesa 🇮🇪</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --green: #169b62; --orange: #ff883e; --gold: #f5c842; --white: #fff; --dark: #0f1a0e; }
+  body { background: var(--dark); color: var(--white); font-family: 'DM Sans', sans-serif; min-height: 100vh; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(ellipse 80% 60% at 50% 0%, #1a3a1a 0%, transparent 70%); pointer-events: none; z-index: 0; }
+  .shamrocks-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; opacity: 0.07; }
+  .shamrocks-bg span { position: absolute; font-size: 4rem; animation: floatUp linear infinite; }
+  @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+  .wrapper { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1.2rem 3rem; }
+  .flag-bar { display: flex; gap: 4px; margin-bottom: 1.2rem; animation: slideDown .8s ease both; }
+  .flag-bar span { display: block; width: 28px; height: 6px; border-radius: 3px; }
+  .flag-bar span:nth-child(1) { background: #169b62; }
+  .flag-bar span:nth-child(2) { background: #fff; }
+  .flag-bar span:nth-child(3) { background: #ff883e; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 6vw, 2.4rem); font-weight: 900; text-align: center; line-height: 1.15; color: var(--white); animation: slideDown .8s .1s ease both; margin-bottom: 0.2rem; }
+  .subtitle { font-size: .8rem; color: #8aad88; text-align: center; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1.4rem; animation: slideDown .8s .2s ease both; }
+  .tabs { display: flex; width: 100%; max-width: 360px; background: #141f13; border: 1px solid #2a4a2a; border-radius: 14px; padding: 4px; margin-bottom: 1.4rem; animation: fadeIn .8s .3s ease both; }
+  .tab-btn { flex: 1; padding: .65rem .4rem; border: none; border-radius: 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: .78rem; font-weight: 500; background: transparent; color: #7a9a78; transition: all .3s ease; }
+  .tab-btn.active.stamp4 { background: linear-gradient(135deg, #1a4a30, #0d2318); color: #4dff9a; }
+  .tab-btn.active.citizen { background: linear-gradient(135deg, #3a2e0a, #1a1405); color: var(--gold); }
+  .panel { display: none; width: 100%; max-width: 360px; }
+  .panel.active { display: block; animation: fadeIn .4s ease both; }
+  .arc-section { position: relative; width: 200px; height: 200px; margin: 0 auto 1.4rem; }
+  .arc-section svg { transform: rotate(-90deg); width: 200px; height: 200px; }
+  .arc-bg { fill: none; stroke: #1e3b1e; stroke-width: 11; }
+  .arc-progress { fill: none; stroke-width: 11; stroke-linecap: round; transition: stroke-dashoffset 2s cubic-bezier(.4,0,.2,1); }
+  .arc-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .arc-pct { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; line-height: 1; }
+  .arc-lbl { font-size: .65rem; color: #8aad88; text-transform: uppercase; letter-spacing: .1em; margin-top: 3px; }
+  .arc-emoji { font-size: 1.3rem; margin-top: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-bottom: 1.2rem; }
+  .card { background: linear-gradient(135deg, #1a3320 0%, #0f1a0e 100%); border: 1px solid #2a4a2a; border-radius: 14px; padding: 1rem; text-align: center; position: relative; overflow: hidden; }
+  .card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  #panel-stamp4 .card::after { background: linear-gradient(90deg, #169b62, #4dff9a); }
+  #panel-citizen .card::after { background: linear-gradient(90deg, #f5c842, #ff883e); }
+  .card-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--white); line-height: 1; display: block; }
+  .card-unit { font-size: .65rem; color: #8aad88; text-transform: uppercase; letter-spacing: .12em; margin-top: 3px; display: block; }
+  .dates-card { background: #141f13; border: 1px solid #2a4a2a; border-radius: 14px; padding: 1.1rem; margin-bottom: 1.2rem; }
+  .date-row { display: flex; justify-content: space-between; align-items: center; padding: .45rem 0; }
+  .date-row + .date-row { border-top: 1px solid #1e3b1e; }
+  .date-label { font-size: .72rem; color: #7a9a78; text-transform: uppercase; letter-spacing: .07em; }
+  .date-val { font-size: .88rem; font-weight: 500; color: var(--white); }
+  .date-val.green { color: #4dff9a; font-weight: 700; }
+  .date-val.gold { color: var(--gold); font-weight: 700; }
+  .motivation { border-radius: 14px; padding: 1.2rem; text-align: center; margin-bottom: 1.2rem; }
+  #panel-stamp4 .motivation { background: linear-gradient(135deg, #1a4a30, #0d2318); border: 1px solid #2a6040; }
+  #panel-citizen .motivation { background: linear-gradient(135deg, #3a2e0a, #1a1405); border: 1px solid #6a5010; }
+  .motivation p { font-size: .9rem; line-height: 1.6; }
+  #panel-stamp4 .motivation p { color: #c8e8c4; }
+  #panel-citizen .motivation p { color: #f0dfa0; }
+  .motivation strong { color: var(--white); }
+  .milestones h3 { font-size: .65rem; text-transform: uppercase; letter-spacing: .15em; color: #7a9a78; margin-bottom: .7rem; padding-left: .2rem; }
+  .milestone { display: flex; align-items: center; gap: .7rem; padding: .55rem 0; border-bottom: 1px solid #1e3b1e; }
+  .milestone:last-child { border-bottom: none; }
+  .ms-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .ms-dot.done { background: var(--green); }
+  .ms-dot.next-s4 { background: #4dff9a; box-shadow: 0 0 8px #4dff9a; animation: pulse 2s ease-in-out infinite; }
+  .ms-dot.next-cit { background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: pulse 2s ease-in-out infinite; }
+  .ms-dot.future { background: #2a4a2a; }
+  .ms-text { flex: 1; font-size: .8rem; color: #c0d8bc; }
+  .ms-date { font-size: .7rem; color: #7a9a78; }
+  .ms-done-txt { font-size: .7rem; color: var(--green); }
+  footer { margin-top: 1.5rem; font-size: .68rem; color: #4a6a48; text-align: center; }
+  @keyframes slideDown { from { transform: translateY(-18px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.4); } }
+</style>
+</head>
+<body>
+<div class="shamrocks-bg" id="shamrocksBg"></div>
+<div class="wrapper">
+  <div class="flag-bar"><span></span><span></span><span></span></div>
+  <h1>Minha Jornada<br>Irlandesa 🍀</h1>
+  <p class="subtitle">Irlanda · Desde Nov 2021</p>
+  <div class="tabs">
+    <button class="tab-btn stamp4 active" onclick="switchTab('stamp4')">🟢 Stamp 4</button>
+    <button class="tab-btn citizen" onclick="switchTab('citizen')">⭐ Cidadania</button>
+  </div>
+  <div class="panel active" id="panel-stamp4">
+    <div class="arc-section">
+      <svg viewBox="0 0 200 200">
+        <defs>
+          <linearGradient id="ag1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#169b62"/>
+            <stop offset="100%" style="stop-color:#4dff9a"/>
+          </linearGradient>
+        </defs>
+        <circle class="arc-bg" cx="100" cy="100" r="86"/>
+        <circle class="arc-progress" id="arc1" cx="100" cy="100" r="86" stroke="url(#ag1)" stroke-dasharray="540" stroke-dashoffset="540"/>
+      </svg>
+      <div class="arc-center">
+        <span class="arc-pct" id="pct1" style="color:#4dff9a">0%</span>
+        <span class="arc-lbl">concluído</span>
+        <span class="arc-emoji">📋</span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><span class="card-num" id="s4d">--</span><span class="card-unit">dias</span></div>
+      <div class="card"><span class="card-num" id="s4mo">--</span><span class="card-unit">meses</span></div>
+      <div class="card"><span class="card-num" id="s4w">--</span><span class="card-unit">semanas</span></div>
+      <div class="card"><span class="card-num" id="s4h">--</span><span class="card-unit">horas</span></div>
+    </div>
+    <div class="dates-card">
+      <div class="date-row"><span class="date-label">📋 Stamp 2 obtido</span><span class="date-val">22 Jan 2023</span></div>
+      <div class="date-row"><span class="date-label">⏱️ Prazo</span><span class="date-val">57 meses</span></div>
+      <div class="date-row"><span class="date-label">🎯 Elegível em</span><span class="date-val green">22 Out 2027</span></div>
+    </div>
+    <div class="motivation"><p id="mot1">Calculando...</p></div>
+    <div class="milestones"><h3>Marcos • Stamp 4</h3><div id="ms1"></div></div>
+  </div>
+  <div class="panel" id="panel-citizen">
+    <div class="arc-section">
+      <svg viewBox="0 0 200 200">
+        <defs>
+          <linearGradient id="ag2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f5c842"/>
+            <stop offset="100%" style="stop-color:#ff883e"/>
+          </linearGradient>
+        </defs>
+        <circle class="arc-bg" cx="100" cy="100" r="86"/>
+        <circle class="arc-progress" id="arc2" cx="100" cy="100" r="86" stroke="url(#ag2)" stroke-dasharray="540" stroke-dashoffset="540"/>
+      </svg>
+      <div class="arc-center">
+        <span class="arc-pct" id="pct2" style="color:#f5c842">0%</span>
+        <span class="arc-lbl">concluído</span>
+        <span class="arc-emoji">🌟</span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><span class="card-num" id="cd">--</span><span class="card-unit">dias</span></div>
+      <div class="card"><span class="card-num" id="cmo">--</span><span class="card-unit">meses</span></div>
+      <div class="card"><span class="card-num" id="cw">--</span><span class="card-unit">semanas</span></div>
+      <div class="card"><span class="card-num" id="ch">--</span><span class="card-unit">horas</span></div>
+    </div>
+    <div class="dates-card">
+      <div class="date-row"><span class="date-label">📋 Início do visto</span><span class="date-val">22 Jan 2023</span></div>
+      <div class="date-row"><span class="date-label">⏱️ Prazo</span><span class="date-val">5 anos completos</span></div>
+      <div class="date-row"><span class="date-label">🌟 Elegível em</span><span class="date-val gold">22 Jan 2028</span></div>
+    </div>
+    <div class="motivation"><p id="mot2">Calculando...</p></div>
+    <div class="milestones"><h3>Marcos • Cidadania</h3><div id="ms2"></div></div>
+  </div>
+  <footer>Atualizado automaticamente · Feito com 💚 para a sua jornada</footer>
+</div>
+<script>
+  const bg = document.getElementById('shamrocksBg');
+  for (let i = 0; i < 12; i++) {
+    const s = document.createElement('span');
+    s.textContent = '☘️';
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.animationDuration = (12 + Math.random() * 20) + 's';
+    s.style.animationDelay = (Math.random() * 15) + 's';
+    s.style.fontSize = (2 + Math.random() * 3) + 'rem';
+    bg.appendChild(s);
+  }
+  const vistoDate    = new Date('2023-01-22');
+  const stamp4Target = new Date('2027-10-22');
+  const citTarget    = new Date('2028-01-22');
+  function calc(target) {
+    const now = new Date();
+    const leftMs = Math.max(0, target - now);
+    return {
+      days: Math.floor(leftMs / 86400000), months: Math.floor(leftMs / 86400000 / 30.44),
+      weeks: Math.floor(leftMs / 604800000), hours: Math.floor(leftMs / 3600000),
+      pct: Math.min(100, Math.max(0, (now - vistoDate) / (target - vistoDate) * 100))
+    };
+  }
+  function motivMsg(days, isCit) {
+    if (!isCit) {
+      if (days <= 5)   return '🎉 <strong>CHEGOU A HORA!</strong> Vai lá e aplica pro Stamp 4!';
+      if (days <= 100) return '🔥 <strong>Menos de 100 dias!</strong> Você está na reta final!';
+      if (days <= 365) return '⚡ <strong>Menos de 1 ano!</strong> O Stamp 4 está logo ali.';
+      if (days <= 730) return '💪 <strong>Mais da metade feita!</strong> Você sobreviveu o frio e a chuva — vai chegar lá.';
+      return '🌱 <strong>Cada dia conta.</strong> Você saiu do Brasil, cruzou o mundo. Isso já é incrível.';
+    } else {
+      if (days <= 5)   return '🌟 <strong>CHEGOU A HORA!</strong> Bem-vindo(a) à família irlandesa!';
+      if (days <= 100) return '🏆 <strong>Menos de 100 dias!</strong> O passaporte europeu está quase na sua mão!';
+      if (days <= 365) return '⭐ <strong>Menos de 1 ano!</strong> Em breve você será cidadão(ã) europeu(eia)!';
+      if (days <= 730) return '💛 <strong>A cidadania avança!</strong> Você já passou da metade.';
+      return '🍀 <strong>O sonho maior.</strong> Cidadania irlandesa e europeia no horizonte. Vale cada dia frio.';
+    }
+  }
+  function update() {
+    const s4 = calc(stamp4Target), cit = calc(citTarget), f = n => n.toLocaleString('pt-BR'), c = 540;
+    document.getElementById('arc1').style.strokeDashoffset = c - (s4.pct/100)*c;
+    document.getElementById('pct1').textContent = s4.pct.toFixed(1)+'%';
+    document.getElementById('s4d').textContent = f(s4.days);
+    document.getElementById('s4mo').textContent = s4.months;
+    document.getElementById('s4w').textContent = f(s4.weeks);
+    document.getElementById('s4h').textContent = f(s4.hours);
+    document.getElementById('mot1').innerHTML = motivMsg(s4.days, false);
+    document.getElementById('arc2').style.strokeDashoffset = c - (cit.pct/100)*c;
+    document.getElementById('pct2').textContent = cit.pct.toFixed(1)+'%';
+    document.getElementById('cd').textContent = f(cit.days);
+    document.getElementById('cmo').textContent = cit.months;
+    document.getElementById('cw').textContent = f(cit.weeks);
+    document.getElementById('ch').textContent = f(cit.hours);
+    document.getElementById('mot2').innerHTML = motivMsg(cit.days, true);
+  }
+  function buildMs(id, items, nc) {
+    const now = new Date(), el = document.getElementById(id); let fn = false;
+    items.forEach(ms => {
+      const done = now >= ms.date; let isNext = false;
+      if (!done && !fn) { isNext = true; fn = true; }
+      const div = document.createElement('div'); div.className = 'milestone';
+      const fmt = ms.date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+      div.innerHTML = `<div class="ms-dot ${done?'done':isNext?nc:'future'}"></div><span class="ms-text">${ms.label}</span><span class="${done?'ms-done-txt':'ms-date'}">${done?'✓ '+fmt:fmt}</span>`;
+      el.appendChild(div);
+    });
+  }
+  buildMs('ms1',[
+    {label:'Chegada à Irlanda 🛬',date:new Date('2021-11-01')},
+    {label:'Obteve Stamp 2 📋',date:new Date('2023-01-22')},
+    {label:'25% do caminho 🌱',date:new Date('2024-03-22')},
+    {label:'50% do caminho 🌗',date:new Date('2025-05-22')},
+    {label:'75% do caminho 🔥',date:new Date('2026-07-22')},
+    {label:'Elegível para Stamp 4 🍀',date:new Date('2027-10-22')},
+  ],'next-s4');
+  buildMs('ms2',[
+    {label:'Chegada à Irlanda 🛬',date:new Date('2021-11-01')},
+    {label:'Obteve Stamp 2 📋',date:new Date('2023-01-22')},
+    {label:'1 ano de visto 🎂',date:new Date('2024-01-22')},
+    {label:'2 anos de visto ✨',date:new Date('2025-01-22')},
+    {label:'3 anos de visto 🎉',date:new Date('2026-01-22')},
+    {label:'4 anos de visto 🥳',date:new Date('2027-01-22')},
+    {label:'Stamp 4 ativo 🟢',date:new Date('2027-10-22')},
+    {label:'Elegível p/ Cidadania 🌟',date:new Date('2028-01-22')},
+  ],'next-cit');
+  function switchTab(tab) {
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('panel-'+tab).classList.add('active');
+    document.querySelector('.tab-btn.'+tab).classList.add('active');
+  }
+  update(); setInterval(update, 60000);
+</script>
+</body>
+</html>
