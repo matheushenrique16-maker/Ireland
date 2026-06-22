@@ -20,11 +20,25 @@
   .flag-bar span:nth-child(2) { background: #fff; }
   .flag-bar span:nth-child(3) { background: #ff883e; }
   h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 6vw, 2.4rem); font-weight: 900; text-align: center; line-height: 1.15; color: var(--white); animation: slideDown .8s .1s ease both; margin-bottom: 0.2rem; }
-  .subtitle { font-size: .8rem; color: #8aad88; text-align: center; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1.4rem; animation: slideDown .8s .2s ease both; }
-  .tabs { display: flex; width: 100%; max-width: 360px; background: #141f13; border: 1px solid #2a4a2a; border-radius: 14px; padding: 4px; margin-bottom: 1.4rem; animation: fadeIn .8s .3s ease both; }
-  .tab-btn { flex: 1; padding: .65rem .4rem; border: none; border-radius: 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: .78rem; font-weight: 500; background: transparent; color: #7a9a78; transition: all .3s ease; }
+  .subtitle { font-size: .8rem; color: #8aad88; text-align: center; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1.2rem; animation: slideDown .8s .2s ease both; }
+
+  /* Hero: days in Ireland */
+  .hero-days { width: 100%; max-width: 360px; text-align: center; background: linear-gradient(135deg, #14361f, #0d1f12); border: 1px solid #2a5a3a; border-radius: 16px; padding: 1.3rem 1rem; margin-bottom: .9rem; animation: fadeIn .8s .35s ease both; }
+  .hero-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: #4dff9a; line-height: 1; display: block; }
+  .hero-label { font-size: .76rem; color: #a8d4a0; letter-spacing: .03em; display: block; margin-top: .35rem; }
+
+  /* Daily quote */
+  .quote-card { width: 100%; max-width: 360px; display: flex; gap: .7rem; align-items: flex-start; background: #141f13; border: 1px solid #2a4a2a; border-radius: 14px; padding: .9rem 1rem; margin-bottom: 1.3rem; animation: fadeIn .8s .4s ease both; }
+  .quote-icon { font-size: 1.1rem; flex-shrink: 0; line-height: 1.4; }
+  .quote-card p { font-size: .8rem; line-height: 1.55; color: #c8e0c4; font-style: italic; }
+
+  /* Tabs */
+  .tabs { display: flex; width: 100%; max-width: 360px; background: #141f13; border: 1px solid #2a4a2a; border-radius: 14px; padding: 4px; margin-bottom: 1.4rem; animation: fadeIn .8s .45s ease both; }
+  .tab-btn { flex: 1; padding: .6rem .3rem; border: none; border-radius: 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: .74rem; font-weight: 500; background: transparent; color: #7a9a78; transition: all .3s ease; }
   .tab-btn.active.stamp4 { background: linear-gradient(135deg, #1a4a30, #0d2318); color: #4dff9a; }
   .tab-btn.active.citizen { background: linear-gradient(135deg, #3a2e0a, #1a1405); color: var(--gold); }
+  .tab-btn.active.docs { background: linear-gradient(135deg, #0d2e3a, #051a22); color: #5cc8e8; }
+
   .panel { display: none; width: 100%; max-width: 360px; }
   .panel.active { display: block; animation: fadeIn .4s ease both; }
   .arc-section { position: relative; width: 200px; height: 200px; margin: 0 auto 1.4rem; }
@@ -56,21 +70,47 @@
   #panel-stamp4 .motivation p { color: #c8e8c4; }
   #panel-citizen .motivation p { color: #f0dfa0; }
   .motivation strong { color: var(--white); }
+
   .milestones h3 { font-size: .65rem; text-transform: uppercase; letter-spacing: .15em; color: #7a9a78; margin-bottom: .7rem; padding-left: .2rem; }
   .milestone { display: flex; align-items: center; gap: .7rem; padding: .55rem 0; border-bottom: 1px solid #1e3b1e; }
   .milestone:last-child { border-bottom: none; }
   .ms-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
   .ms-dot.done { background: var(--green); }
-  .ms-dot.next-s4 { background: #4dff9a; box-shadow: 0 0 8px #4dff9a; animation: pulse 2s ease-in-out infinite; }
-  .ms-dot.next-cit { background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: pulse 2s ease-in-out infinite; }
   .ms-dot.future { background: #2a4a2a; }
   .ms-text { flex: 1; font-size: .8rem; color: #c0d8bc; }
   .ms-date { font-size: .7rem; color: #7a9a78; }
   .ms-done-txt { font-size: .7rem; color: var(--green); }
+
+  /* You are here marker */
+  .you-here { display: flex; align-items: center; gap: .6rem; padding: .6rem .7rem; margin: .3rem 0; border-radius: 10px; background: linear-gradient(90deg, rgba(77,255,154,0.12), rgba(245,200,66,0.12)); border: 1px dashed #4dff9a; animation: glowPulse 2.5s ease-in-out infinite; }
+  .you-here .yh-pin { font-size: .95rem; }
+  .you-here .yh-text { flex: 1; font-size: .72rem; font-weight: 600; color: #4dff9a; letter-spacing: .08em; text-transform: uppercase; }
+  .you-here .yh-date { font-size: .7rem; color: #d0e8c8; }
+  @keyframes glowPulse { 0%,100% { box-shadow: 0 0 0 rgba(77,255,154,0); } 50% { box-shadow: 0 0 14px rgba(77,255,154,0.25); } }
+
+  /* Documents checklist */
+  .docs-intro { font-size: .82rem; color: #a8c4a0; line-height: 1.55; margin-bottom: 1.3rem; text-align: center; }
+  .doc-section { margin-bottom: 1.6rem; }
+  .doc-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .8rem; }
+  .doc-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; }
+  .doc-title.s4 { color: #4dff9a; }
+  .doc-title.cit { color: var(--gold); }
+  .doc-count { font-size: .7rem; font-family: 'DM Sans'; color: #7a9a78; background: #141f13; border: 1px solid #2a4a2a; border-radius: 20px; padding: .25rem .7rem; }
+  .check-item { display: flex; align-items: flex-start; gap: .7rem; padding: .7rem .9rem; background: #141f13; border: 1px solid #2a4a2a; border-radius: 12px; margin-bottom: .5rem; cursor: pointer; transition: all .2s; user-select: none; }
+  .check-item:hover { border-color: #3a5a3a; }
+  .check-item input { display: none; }
+  .checkmark { width: 20px; height: 20px; border-radius: 6px; border: 2px solid #3a5a3a; flex-shrink: 0; margin-top: 1px; position: relative; transition: all .2s; }
+  .check-item input:checked ~ .checkmark { background: #4dff9a; border-color: #4dff9a; }
+  .check-item.cit input:checked ~ .checkmark { background: var(--gold); border-color: var(--gold); }
+  .checkmark::after { content: '✓'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; color: #0f1a0e; opacity: 0; transition: opacity .2s; }
+  .check-item input:checked ~ .checkmark::after { opacity: 1; }
+  .check-text { font-size: .82rem; color: #c8e0c4; line-height: 1.4; transition: all .2s; }
+  .check-item input:checked ~ .check-text { color: #6a8a68; text-decoration: line-through; }
+  .doc-note { font-size: .68rem; color: #5a7a58; line-height: 1.5; text-align: center; padding: .8rem; border-top: 1px solid #1e3b1e; margin-top: .5rem; }
+
   footer { margin-top: 1.5rem; font-size: .68rem; color: #4a6a48; text-align: center; }
   @keyframes slideDown { from { transform: translateY(-18px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.4); } }
 </style>
 </head>
 <body>
@@ -79,27 +119,34 @@
   <div class="flag-bar"><span></span><span></span><span></span></div>
   <h1>Minha Jornada<br>Irlandesa 🍀</h1>
   <p class="subtitle">Irlanda · Desde Nov 2021</p>
-  <div class="tabs">
-    <button class="tab-btn stamp4 active" onclick="switchTab('stamp4')">🟢 Stamp 4</button>
-    <button class="tab-btn citizen" onclick="switchTab('citizen')">⭐ Cidadania</button>
+
+  <!-- Days in Ireland -->
+  <div class="hero-days">
+    <span class="hero-num" id="daysInIreland">--</span>
+    <span class="hero-label">dias construindo sua vida na Irlanda 🌍</span>
   </div>
+
+  <!-- Daily quote -->
+  <div class="quote-card">
+    <span class="quote-icon">☘️</span>
+    <p id="dailyQuote">...</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn stamp4 active" onclick="switchTab('stamp4')">Stamp 4</button>
+    <button class="tab-btn citizen" onclick="switchTab('citizen')">Cidadania</button>
+    <button class="tab-btn docs" onclick="switchTab('docs')">Documentos</button>
+  </div>
+
+  <!-- STAMP 4 -->
   <div class="panel active" id="panel-stamp4">
     <div class="arc-section">
       <svg viewBox="0 0 200 200">
-        <defs>
-          <linearGradient id="ag1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#169b62"/>
-            <stop offset="100%" style="stop-color:#4dff9a"/>
-          </linearGradient>
-        </defs>
+        <defs><linearGradient id="ag1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#169b62"/><stop offset="100%" style="stop-color:#4dff9a"/></linearGradient></defs>
         <circle class="arc-bg" cx="100" cy="100" r="86"/>
         <circle class="arc-progress" id="arc1" cx="100" cy="100" r="86" stroke="url(#ag1)" stroke-dasharray="540" stroke-dashoffset="540"/>
       </svg>
-      <div class="arc-center">
-        <span class="arc-pct" id="pct1" style="color:#4dff9a">0%</span>
-        <span class="arc-lbl">concluído</span>
-        <span class="arc-emoji">📋</span>
-      </div>
+      <div class="arc-center"><span class="arc-pct" id="pct1" style="color:#4dff9a">0%</span><span class="arc-lbl">concluído</span><span class="arc-emoji">📋</span></div>
     </div>
     <div class="grid">
       <div class="card"><span class="card-num" id="s4d">--</span><span class="card-unit">dias</span></div>
@@ -108,30 +155,23 @@
       <div class="card"><span class="card-num" id="s4h">--</span><span class="card-unit">horas</span></div>
     </div>
     <div class="dates-card">
-      <div class="date-row"><span class="date-label">📋 Stamp 2 obtido</span><span class="date-val">22 Jan 2023</span></div>
+      <div class="date-row"><span class="date-label">📋 Stamp 1 obtido</span><span class="date-val">22 Jan 2023</span></div>
       <div class="date-row"><span class="date-label">⏱️ Prazo</span><span class="date-val">57 meses</span></div>
       <div class="date-row"><span class="date-label">🎯 Elegível em</span><span class="date-val green">22 Out 2027</span></div>
     </div>
     <div class="motivation"><p id="mot1">Calculando...</p></div>
     <div class="milestones"><h3>Marcos • Stamp 4</h3><div id="ms1"></div></div>
   </div>
+
+  <!-- CIDADANIA -->
   <div class="panel" id="panel-citizen">
     <div class="arc-section">
       <svg viewBox="0 0 200 200">
-        <defs>
-          <linearGradient id="ag2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#f5c842"/>
-            <stop offset="100%" style="stop-color:#ff883e"/>
-          </linearGradient>
-        </defs>
+        <defs><linearGradient id="ag2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f5c842"/><stop offset="100%" style="stop-color:#ff883e"/></linearGradient></defs>
         <circle class="arc-bg" cx="100" cy="100" r="86"/>
         <circle class="arc-progress" id="arc2" cx="100" cy="100" r="86" stroke="url(#ag2)" stroke-dasharray="540" stroke-dashoffset="540"/>
       </svg>
-      <div class="arc-center">
-        <span class="arc-pct" id="pct2" style="color:#f5c842">0%</span>
-        <span class="arc-lbl">concluído</span>
-        <span class="arc-emoji">🌟</span>
-      </div>
+      <div class="arc-center"><span class="arc-pct" id="pct2" style="color:#f5c842">0%</span><span class="arc-lbl">concluído</span><span class="arc-emoji">🌟</span></div>
     </div>
     <div class="grid">
       <div class="card"><span class="card-num" id="cd">--</span><span class="card-unit">dias</span></div>
@@ -147,9 +187,35 @@
     <div class="motivation"><p id="mot2">Calculando...</p></div>
     <div class="milestones"><h3>Marcos • Cidadania</h3><div id="ms2"></div></div>
   </div>
+
+  <!-- DOCUMENTOS -->
+  <div class="panel" id="panel-docs">
+    <p class="docs-intro">Marque cada documento conforme for reunindo. Suas marcações ficam salvas neste aparelho. ✅</p>
+
+    <div class="doc-section">
+      <div class="doc-head">
+        <span class="doc-title s4">🟢 Stamp 4</span>
+        <span class="doc-count" id="countS4">0 / 0</span>
+      </div>
+      <div id="listS4"></div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-head">
+        <span class="doc-title cit">⭐ Cidadania</span>
+        <span class="doc-count" id="countCit">0 / 0</span>
+      </div>
+      <div id="listCit"></div>
+    </div>
+
+    <p class="doc-note">⚠️ Este é um guia geral de referência. Os requisitos oficiais e atuais devem sempre ser confirmados no site do Immigration Service Delivery (ISD): irishimmigration.ie</p>
+  </div>
+
   <footer>Atualizado automaticamente · Feito com 💚 para a sua jornada</footer>
 </div>
+
 <script>
+  // Shamrocks
   const bg = document.getElementById('shamrocksBg');
   for (let i = 0; i < 12; i++) {
     const s = document.createElement('span');
@@ -160,9 +226,47 @@
     s.style.fontSize = (2 + Math.random() * 3) + 'rem';
     bg.appendChild(s);
   }
+
+  const arrivalDate  = new Date('2021-11-01');
   const vistoDate    = new Date('2023-01-22');
   const stamp4Target = new Date('2027-10-22');
   const citTarget    = new Date('2028-01-22');
+
+  // Days in Ireland
+  function updateDaysInIreland() {
+    const days = Math.floor((new Date() - arrivalDate) / 86400000);
+    document.getElementById('daysInIreland').textContent = days.toLocaleString('pt-BR');
+  }
+
+  // Daily quote (rotates by day of year)
+  const quotes = [
+    "Você não está só de passagem — está construindo raízes em terra nova.",
+    "Quem atravessa um oceano por um sonho não volta atrás por uma chuva.",
+    "Provérbio irlandês: 'Não há lareira como a sua própria.' Você está construindo a sua.",
+    "Cada inverno que você aguenta aqui é um degrau a mais rumo ao seu objetivo.",
+    "Você trocou o conforto do conhecido pela coragem do possível. Isso é raro.",
+    "Provérbio irlandês: 'Devagar e sempre se ganha a corrida.' Seu tempo está chegando.",
+    "Saudade não é fraqueza. É a prova de que você ama o que deixou e respeita o que busca.",
+    "Cada euro guardado hoje é um tijolo da casa que você vai construir amanhã.",
+    "Você já passou pela parte mais difícil: começar. Agora é só não parar.",
+    "Provérbio irlandês: 'Um amigo é melhor que ouro.' Cuide das pessoas no caminho.",
+    "Disciplina é lembrar do que você quer quando bate a vontade de desistir.",
+    "Você não precisa ter pressa. Precisa ter direção — e você tem.",
+    "Cada documento, cada mês, cada selo no passaporte: você está montando o quebra-cabeça da sua liberdade.",
+    "Provérbio irlandês: 'A saúde é melhor que a riqueza.' Cuide de você nessa jornada.",
+    "O que parece distante hoje será 'lembra quando?' amanhã.",
+    "Coragem não é não sentir medo — é seguir mesmo sentindo. Você faz isso todo dia.",
+    "Um dia você vai olhar pra trás e perceber que cada dia frio valeu a pena.",
+    "Você começou como intercambista. Olha onde chegou. Olha onde ainda vai chegar.",
+    "Disciplina é a ponte entre onde você está e onde quer estar.",
+    "Ninguém constrói uma vida nova num dia. Constrói em milhares deles — como você."
+  ];
+  function updateQuote() {
+    const start = new Date(new Date().getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((new Date() - start) / 86400000);
+    document.getElementById('dailyQuote').textContent = quotes[dayOfYear % quotes.length];
+  }
+
   function calc(target) {
     const now = new Date();
     const leftMs = Math.max(0, target - now);
@@ -203,43 +307,125 @@
     document.getElementById('cw').textContent = f(cit.weeks);
     document.getElementById('ch').textContent = f(cit.hours);
     document.getElementById('mot2').innerHTML = motivMsg(cit.days, true);
+    updateDaysInIreland();
   }
-  function buildMs(id, items, nc) {
-    const now = new Date(), el = document.getElementById(id); let fn = false;
-    items.forEach(ms => {
-      const done = now >= ms.date; let isNext = false;
-      if (!done && !fn) { isNext = true; fn = true; }
-      const div = document.createElement('div'); div.className = 'milestone';
+
+  // Timeline with "you are here" marker
+  function buildMs(id, items) {
+    const now = new Date(), el = document.getElementById(id);
+    el.innerHTML = '';
+    let insertedHere = false;
+    items.forEach((ms, idx) => {
+      const done = now >= ms.date;
+      // Insert "you are here" before the first future item
+      if (!done && !insertedHere) {
+        const yh = document.createElement('div');
+        yh.className = 'you-here';
+        const today = now.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+        yh.innerHTML = `<span class="yh-pin">📍</span><span class="yh-text">Você está aqui</span><span class="yh-date">${today}</span>`;
+        el.appendChild(yh);
+        insertedHere = true;
+      }
+      const div = document.createElement('div');
+      div.className = 'milestone';
       const fmt = ms.date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
-      div.innerHTML = `<div class="ms-dot ${done?'done':isNext?nc:'future'}"></div><span class="ms-text">${ms.label}</span><span class="${done?'ms-done-txt':'ms-date'}">${done?'✓ '+fmt:fmt}</span>`;
+      div.innerHTML = `<div class="ms-dot ${done?'done':'future'}"></div><span class="ms-text">${ms.label}</span><span class="${done?'ms-done-txt':'ms-date'}">${done?'✓ '+fmt:fmt}</span>`;
       el.appendChild(div);
     });
   }
   buildMs('ms1',[
-    {label:'Chegada à Irlanda 🛬',date:new Date('2021-11-01')},
-    {label:'Obteve Stamp 2 📋',date:new Date('2023-01-22')},
+    {label:'Cheguei como estudante (Stamp 2) 🎓',date:new Date('2021-11-01')},
+    {label:'Mudei para Stamp 1 · trabalho 📋',date:new Date('2023-01-22')},
     {label:'25% do caminho 🌱',date:new Date('2024-03-22')},
     {label:'50% do caminho 🌗',date:new Date('2025-05-22')},
     {label:'75% do caminho 🔥',date:new Date('2026-07-22')},
     {label:'Elegível para Stamp 4 🍀',date:new Date('2027-10-22')},
-  ],'next-s4');
+  ]);
   buildMs('ms2',[
-    {label:'Chegada à Irlanda 🛬',date:new Date('2021-11-01')},
-    {label:'Obteve Stamp 2 📋',date:new Date('2023-01-22')},
-    {label:'1 ano de visto 🎂',date:new Date('2024-01-22')},
-    {label:'2 anos de visto ✨',date:new Date('2025-01-22')},
-    {label:'3 anos de visto 🎉',date:new Date('2026-01-22')},
-    {label:'4 anos de visto 🥳',date:new Date('2027-01-22')},
+    {label:'Cheguei como estudante (Stamp 2) 🎓',date:new Date('2021-11-01')},
+    {label:'Mudei para Stamp 1 · trabalho 📋',date:new Date('2023-01-22')},
+    {label:'1 ano com Stamp 1 🎂',date:new Date('2024-01-22')},
+    {label:'2 anos com Stamp 1 ✨',date:new Date('2025-01-22')},
+    {label:'3 anos com Stamp 1 🎉',date:new Date('2026-01-22')},
+    {label:'4 anos com Stamp 1 🥳',date:new Date('2027-01-22')},
     {label:'Stamp 4 ativo 🟢',date:new Date('2027-10-22')},
     {label:'Elegível p/ Cidadania 🌟',date:new Date('2028-01-22')},
-  ],'next-cit');
+  ]);
+
+  // ---- Documents checklist ----
+  const docsS4 = [
+    'Passaporte válido (e antigos, se tiver)',
+    'IRP card atual (cartão de residência)',
+    'Histórico dos employment permits',
+    'Carta do empregador atual',
+    'Payslips recentes (últimos 3–6 meses)',
+    'Employment Detail Summary / P60',
+    'Comprovante de endereço na Irlanda',
+    'Formulário de aplicação preenchido',
+    'Taxa de aplicação'
+  ];
+  const docsCit = [
+    'Formulário (Form 8) preenchido',
+    'Passaporte válido',
+    'Todos os IRP / GNIB cards',
+    'Comprovante de residência (5 anos)',
+    'Provas de identidade e endereço',
+    'Certidão de nascimento (traduzida)',
+    'Comprovante de situação fiscal (tax)',
+    'Taxa de aplicação (€175)',
+    'Taxa do certificado (€950)'
+  ];
+
+  // localStorage helpers (safe — won't crash if blocked)
+  function loadChecks() {
+    try { return JSON.parse(localStorage.getItem('ie_docs') || '{}'); } catch(e) { return {}; }
+  }
+  function saveChecks(state) {
+    try { localStorage.setItem('ie_docs', JSON.stringify(state)); } catch(e) {}
+  }
+  let checkState = loadChecks();
+
+  function renderDocs(listId, items, prefix, cls, countId) {
+    const el = document.getElementById(listId);
+    el.innerHTML = '';
+    items.forEach((txt, i) => {
+      const key = prefix + i;
+      const checked = checkState[key] ? 'checked' : '';
+      const label = document.createElement('label');
+      label.className = 'check-item ' + cls;
+      label.innerHTML = `<input type="checkbox" data-key="${key}" ${checked}><span class="checkmark"></span><span class="check-text">${txt}</span>`;
+      el.appendChild(label);
+    });
+    updateCount(items, prefix, countId);
+  }
+  function updateCount(items, prefix, countId) {
+    let done = 0;
+    items.forEach((_, i) => { if (checkState[prefix + i]) done++; });
+    document.getElementById(countId).textContent = done + ' / ' + items.length;
+  }
+
+  document.addEventListener('change', e => {
+    if (e.target.matches('input[type="checkbox"][data-key]')) {
+      checkState[e.target.dataset.key] = e.target.checked;
+      saveChecks(checkState);
+      updateCount(docsS4, 's4-', 'countS4');
+      updateCount(docsCit, 'cit-', 'countCit');
+    }
+  });
+
+  renderDocs('listS4', docsS4, 's4-', '', 'countS4');
+  renderDocs('listCit', docsCit, 'cit-', 'cit', 'countCit');
+
   function switchTab(tab) {
     document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     document.getElementById('panel-'+tab).classList.add('active');
     document.querySelector('.tab-btn.'+tab).classList.add('active');
   }
-  update(); setInterval(update, 60000);
+
+  updateQuote();
+  update();
+  setInterval(update, 60000);
 </script>
 </body>
 </html>
